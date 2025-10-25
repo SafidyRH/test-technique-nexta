@@ -1,20 +1,15 @@
-// ============================================
-// src/features/create-project/ui/CreateProjectForm.tsx
-// Formulaire de création de projet (Feature Layer - FSD)
-// ============================================
-
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { createProjectSchema } from '@/shared/lib/validations';
 import { formatCurrency } from '@/shared/lib/utils';
 import type { CreateProjectDTO } from '@/shared/types/project.types';
-import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/atoms/card';
-import { Label } from '../../../components/atoms/label';
-import { Input } from '../../../components/atoms/input';
-import { Textarea } from '../../../components/atoms/textarea';
-import { Button } from '../../../components/atoms/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
+import { Label } from '@/components/atoms/label';
+import { Input } from '@/components/atoms/input';
+import { Textarea } from '@/components/atoms/textarea';
+import { Button } from '@/components/atoms/button';
 
 interface FormErrors {
   title?: string;

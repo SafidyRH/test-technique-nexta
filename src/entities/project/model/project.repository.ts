@@ -1,9 +1,3 @@
-// ============================================
-// src/entities/project/model/project.repository.ts
-// Repository Pattern - Accès aux données (SOLID: Single Responsibility)
-// Gère UNIQUEMENT les opérations CRUD avec Supabase
-// ============================================
-
 import { createServerSupabaseClient } from '@/shared/api/supabase-server';
 import type { 
   Project, 

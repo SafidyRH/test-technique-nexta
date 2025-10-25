@@ -1,16 +1,11 @@
-// ============================================
-// src/features/project-list/ui/ProjectFilters.tsx
-// Composant de filtres et tri des projets
-// ============================================
-
 'use client';
 
+import { useRouter, useSearchParams } from "next/navigation";
+import { Search, SlidersHorizontal } from "lucide-react";
 import { Card, CardContent } from "@/components/atoms/card";
 import { Input } from "@/components/atoms/input";
 import { Label } from "@/components/atoms/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/atoms/select";
-import { Search, SlidersHorizontal } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
 
 export function ProjectFilters() {
   const router = useRouter();

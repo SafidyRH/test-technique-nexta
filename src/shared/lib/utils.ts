@@ -1,9 +1,3 @@
-// ============================================
-// src/shared/lib/utils.ts
-// Fonctions utilitaires réutilisables
-// KISS: Keep It Simple, Stupid - fonctions simples et claires
-// ============================================
-
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { CURRENCY } from '@/shared/config/constants';

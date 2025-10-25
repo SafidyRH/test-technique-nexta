@@ -1,16 +1,16 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { createContributionSchema } from '@/shared/lib/validations';
 import { formatCurrency } from '@/shared/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
-import { Label } from '@radix-ui/react-label';
 import { Button } from '@/components/atoms/button';
 import { Input } from '@/components/atoms/input';
 import { Textarea } from '@/components/atoms/textarea';
-import { ContributeFormProps, FormErrors } from '../types/contribute.types';
+import { ContributeFormProps, FormErrors } from '../../features/contribution/types/contribute.types';
 import { presetAmounts } from '@/shared/config/constants';
+import { Label } from '@/components/atoms/label';
 
 
 export function ContributeForm({ projectId, projectTitle, onSuccess }: Readonly<ContributeFormProps>) {

@@ -1,10 +1,5 @@
-// ============================================
-// src/app/api/contributions/route.ts
-// API Route pour les contributions
-// ============================================
-
-import { ContributionService } from "@/entities/contribution/model/contribution.service";
 import { NextRequest, NextResponse } from "next/server";
+import { ContributionService } from "@/entities/contribution/model/contribution.service";
 
 
 // POST /api/contributions - Créer une contribution

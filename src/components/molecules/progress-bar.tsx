@@ -1,8 +1,3 @@
-// ============================================
-// src/entities/project/ui/ProgressBar.tsx
-// Composant barre de progression personnalisée
-// ============================================
-
 import { calculateProgress, cn, formatCurrency } from "@/shared/lib/utils";
 
 interface ProgressBarProps {

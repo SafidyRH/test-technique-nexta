@@ -1,8 +1,3 @@
-// ============================================
-// src/features/create-project/model/use-create-project.ts
-// Hook personnalisé pour la création de projet
-// ============================================
-
 import { useState } from 'react';
 import { CreateProjectDTO } from '@/shared/types/project.types';
 

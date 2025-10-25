@@ -1,9 +1,3 @@
-// ============================================
-// src/entities/project/model/project.service.ts
-// Service Layer - Logique métier (SOLID: Single Responsibility)
-// Contient la logique business, validation et orchestration
-// ============================================
-
 import { ProjectRepository } from './project.repository';
 import { ContributionRepository } from '@/entities/contribution/model/contribution.repository';
 import type { 

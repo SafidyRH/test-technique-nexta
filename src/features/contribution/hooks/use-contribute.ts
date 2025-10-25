@@ -1,10 +1,6 @@
-// ============================================
-// src/features/contribute/model/use-contribute.ts
-// Hook personnalisé pour les contributions
-// ============================================
 
-import { CreateContributionDTO } from "@/shared/types/contribution.types";
 import { useState } from "react";
+import { CreateContributionDTO } from "@/shared/types/contribution.types";
 
 export function useContribute() {
   const [isLoading, setIsLoading] = useState(false);

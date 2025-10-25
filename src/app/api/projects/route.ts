@@ -1,8 +1,3 @@
-// ============================================
-// src/app/api/projects/route.ts
-// API Route pour CRUD des projets
-// ============================================
-
 import { NextRequest, NextResponse } from 'next/server';
 import { ProjectService } from '@/entities/project/model/project.service';
 import { projectFiltersSchema } from '@/shared/lib/validations';

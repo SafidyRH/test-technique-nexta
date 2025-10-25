@@ -1,8 +1,3 @@
-// ============================================
-// src/shared/types/contribution.types.ts
-// Types pour l'entité Contribution
-// ============================================
-
 import { Project } from "./project.types";
 
 export interface Contribution {

@@ -1,8 +1,3 @@
-// ============================================
-// src/shared/types/api.types.ts
-// Types pour les réponses API
-// ============================================
-
 export interface ApiResponse<T> {
   data: T | null;
   error: ApiError | null;

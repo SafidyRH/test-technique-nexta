@@ -1,11 +1,7 @@
-// ============================================
-// src/entities/contribution/ui/ContributorList.tsx
-// Liste des contributeurs d'un projet
-// ============================================
 
+import { User } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
 import { Contribution } from '@/shared/types/contribution.types';
-import { User } from 'lucide-react';
 import { ContributionCard } from './contribution-card';
 
 interface ContributorListProps {

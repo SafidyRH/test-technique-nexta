@@ -1,10 +1,6 @@
-// ============================================
-// src/entities/project/ui/ProjectCard.tsx
-// Composant carte de projet (Entity Layer - FSD)
-// ============================================
-
 import Link from 'next/link';
 import Image from 'next/image';
+import { Calendar, TrendingUp, Users } from 'lucide-react';
 import { 
   formatCurrency, 
   formatRelativeDate, 
@@ -13,7 +9,6 @@ import {
 import type { ProjectWithStats } from '@/shared/types/project.types';
 import { Card, CardContent, CardFooter, CardHeader } from '../atoms/card';
 import { Progress } from '../atoms/progress';
-import { Calendar, TrendingUp, Users } from 'lucide-react';
 import { Button } from '../atoms/button';
 import { Badge } from '../atoms/badge';
 

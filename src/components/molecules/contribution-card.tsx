@@ -1,8 +1,3 @@
-// ============================================
-// src/entities/contribution/ui/ContributionCard.tsx
-// Carte de contribution individuelle
-// ============================================
-
 import { User, MessageCircle, Calendar } from 'lucide-react';
 import { formatCurrency, formatRelativeDate } from '@/shared/lib/utils';
 import type { Contribution } from '@/shared/types/contribution.types';
@@ -12,7 +7,7 @@ interface ContributionCardProps {
   contribution: Contribution;
 }
 
-export function ContributionCard({ contribution }: ContributionCardProps) {
+export function ContributionCard({ contribution }: Readonly<ContributionCardProps>) {
   return (
     <Card>
       <CardContent className="p-4">
@@ -51,7 +46,7 @@ export function ContributionCard({ contribution }: ContributionCardProps) {
           </div>
 
           {/* Amount */}
-          <div className="flex-shrink-0 text-right">
+          <div className="shrink-0 text-right">
             <p className="text-lg font-bold text-primary">
               {formatCurrency(Number(contribution.amount))}
             </p>

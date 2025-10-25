@@ -1,10 +1,5 @@
-// ============================================
-// src/entities/contribution/ui/TopContributors.tsx
-// Top contributeurs avec podium
-// ============================================
-
-import { cn, formatCurrency, formatRelativeDate } from '@/shared/lib/utils';
 import { Trophy, Medal, Award } from 'lucide-react';
+import { cn, formatCurrency, formatRelativeDate } from '@/shared/lib/utils';
 import { Card, CardContent } from '../atoms/card';
 import { Contribution } from '@/shared/types/contribution.types';
 

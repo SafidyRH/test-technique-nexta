@@ -1,8 +1,3 @@
-// ============================================
-// src/entities/contribution/model/contribution.repository.ts
-// Repository pour les contributions
-// ============================================
-
 import { createServerSupabaseClient } from '@/shared/api/supabase-server';
 import type { 
   Contribution, 

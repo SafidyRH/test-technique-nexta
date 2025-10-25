@@ -1,5 +1,5 @@
-import { ProjectService } from '@/entities/project/model/project.service';
 import { NextRequest, NextResponse } from 'next/server';
+import { ProjectService } from '@/entities/project/model/project.service';
 
 // GET /api/projects/:id - Récupérer un projet
 export async function GET(

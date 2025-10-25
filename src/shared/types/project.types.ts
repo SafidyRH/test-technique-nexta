@@ -1,8 +1,3 @@
-// ============================================
-// src/shared/types/project.types.ts
-// Types pour l'entité Project
-// ============================================
-
 export type ProjectStatus = 'active' | 'completed' | 'cancelled';
 
 export type SortBy = 'date' | 'progress' | 'amount';

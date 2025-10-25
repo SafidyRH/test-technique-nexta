@@ -1,8 +1,3 @@
-// ============================================
-// src/entities/contribution/model/contribution.service.ts
-// Service Layer pour les contributions
-// ============================================
-
 import { ContributionRepository } from './contribution.repository';
 import { ProjectService } from '@/entities/project/model/project.service';
 import { createContributionSchema, validateData } from '@/shared/lib/validations';

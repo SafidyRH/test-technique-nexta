@@ -1,10 +1,6 @@
-// ============================================
-// src/entities/contribution/ui/ContributionStats.tsx
-// Statistiques de contributions
-// ============================================
 
-import { formatCurrency } from "@/shared/lib/utils";
 import { Award, TrendingUp, Trophy, Users } from "lucide-react";
+import { formatCurrency } from "@/shared/lib/utils";
 import { Card, CardContent } from "../atoms/card";
 
 interface ContributionStatsDisplayProps {

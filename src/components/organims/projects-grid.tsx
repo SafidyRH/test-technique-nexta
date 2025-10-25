@@ -1,6 +1,6 @@
+import { Search } from 'lucide-react';
 import { ProjectCard } from '@/components/molecules/project-card';
 import type { ProjectWithStats } from '@/shared/types/project.types';
-import { Search } from 'lucide-react';
 
 interface ProjectGridProps {
   projects: ProjectWithStats[];

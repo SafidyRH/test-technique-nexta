@@ -1,8 +1,3 @@
-// ============================================
-// src/shared/lib/validations.ts
-// Schémas de validation avec Zod
-// SOLID: Single Responsibility - chaque schéma valide une entité
-// ============================================
 import { z } from 'zod';
 import { VALIDATION } from '@/shared/config/constants';
 
