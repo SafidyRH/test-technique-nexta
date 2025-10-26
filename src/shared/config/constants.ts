@@ -52,3 +52,14 @@ export const CURRENCY = {
 
  // Montants prédéfinis
  export const presetAmounts = [1000, 5000, 10000, 25000, 50000];
+
+
+export const BUCKET_NAME = 'project-images';
+export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+export const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+ export const STORAGE_CONFIG = {
+  bucketName: BUCKET_NAME,
+  maxFileSize: MAX_FILE_SIZE,
+  allowedTypes: ALLOWED_TYPES,
+} as const;

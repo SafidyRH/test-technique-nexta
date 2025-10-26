@@ -9,7 +9,7 @@ import { ProgressBar } from '@/components/molecules/progress-bar';
 import { ProjectStats } from '@/components/molecules/project-stats';
 import { TopContributors } from '@/components/molecules/top-contributors';
 import { ContributorList } from '@/components/molecules/contributors-list';
-import { ContributeForm } from '@/components/molecules/contribute-form';
+import { ContributeForm } from '@/components/organims/contribute-form';
 import { Contribution } from '@/shared/types/contribution.types';
 import { ProjectWithStats } from '@/shared/types/project.types';
 

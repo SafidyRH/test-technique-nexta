@@ -1,5 +1,5 @@
 import { ProjectService } from "@/entities/project/model/project.service";
-import { ProjectFilters } from "@/components/molecules/project-filters";
+import { ProjectFilters } from "@/components/organims/project-filters";
 import { ProjectGrid } from "@/components/organims/projects-grid";
 
 export default async function ProjectsPage({

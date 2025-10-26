@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
+import ProgressWrapper from "@/shared/context/progress-wrapper";
+import ProjectLayout from "./projects/layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ProgressWrapper>
+            {children}
+        </ProgressWrapper>
       </body>
     </html>
   );

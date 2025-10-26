@@ -1,4 +1,4 @@
-import { CreateProjectForm } from "@/components/molecules/create-project-form";
+import { CreateProjectForm } from "@/components/organims/create-project-form";
 
 
 export default function NewProject() {
