@@ -8,10 +8,44 @@ import type {
   SortBy,
   SortOrder
 } from '@/shared/types/project.types';
-import type { ApiResponse } from '@/shared/types/api.types';
+import type { ApiResponse, PaginatedResponse, PaginationParams } from '@/shared/types/api.types';
 import { createProjectSchema, updateProjectSchema, validateData } from '@/shared/lib/validations';
 
 export class ProjectService {
+
+  /**
+   * Récupère les projets paginés avec cache-friendly
+   */
+  static async getAllProjectsPaginated(
+    filters?: ProjectFilters,
+    sortBy?: SortBy,
+    sortOrder?: SortOrder,
+    pagination?: PaginationParams
+  ): Promise<ApiResponse<PaginatedResponse<ProjectWithStats>>> {
+    try {
+      const result = await ProjectRepository.findAllPaginated(
+        filters,
+        sortBy,
+        sortOrder,
+        pagination
+      );
+
+      return {
+        data: result,
+        error: null,
+        success: true,
+      };
+    } catch (error) {
+      return {
+        data: null,
+        error: {
+          message: error instanceof Error ? error.message : 'Erreur inconnue',
+        },
+        success: false,
+      };
+    }
+  }
+
   /**
    * Récupère tous les projets avec filtres et tri
    */

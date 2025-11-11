@@ -5,19 +5,28 @@ import { Button } from '@/components/atoms/button';
 import { ProjectCard } from '@/components/molecules/project-card';
 import HeroHeader from '@/widgets/header/hero-header';
 
+// ✅ ISR: Cache 30 secondes pour homepage
+export const revalidate = 30;
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
-  const result = await ProjectService.getAllProjects({}, 'date', 'desc');
+
+  const result = await ProjectService.getAllProjectsPaginated(
+    {},
+    'date',
+    'desc',
+    { page: 1, pageSize: 6 }
+  );
+  
   const statsResult = await ProjectService.getPlatformStats();
 
-  const projects = result.data || [];
+  const projects = result.data?.data || [];
   const stats = statsResult.data;
 
   return (
     <>
       <HeroHeader />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mb-16">
         
 
         {/* Platform Stats */}

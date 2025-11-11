@@ -1,28 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ProjectService } from '@/entities/project/model/project.service';
-import { projectFiltersSchema } from '@/shared/lib/validations';
 
 // GET /api/projects - Liste des projets avec filtres
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     
-    // Parse filters from query params
+    // Parser pagination
+    const page = Math.max(1, Number.parseInt(searchParams.get('page') || '1', 10));
+    const pageSize = Math.min(100, Math.max(1, Number.parseInt(searchParams.get('pageSize') || '12', 10)));
+    
+    // Parser filtres
     const filters = {
       status: searchParams.get('status') || undefined,
       search: searchParams.get('search') || undefined,
-      isFunded: searchParams.get('isFunded') === 'true' ? true : undefined,
       sortBy: (searchParams.get('sortBy') as any) || 'date',
       sortOrder: (searchParams.get('sortOrder') as any) || 'desc',
     };
 
-    // Validation
-    const validatedFilters = projectFiltersSchema.parse(filters);
-
-    const result = await ProjectService.getAllProjects(
-      validatedFilters,
-      validatedFilters.sortBy,
-      validatedFilters.sortOrder
+    const result = await ProjectService.getAllProjectsPaginated(
+      filters.status as any,
+      filters.sortBy,
+      filters.sortOrder,
+      { page, pageSize }
     );
 
     if (!result.success) {
@@ -32,12 +32,15 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ success: true, data: result.data });
+    return NextResponse.json({ 
+      success: true, 
+      data: result.data 
+    });
   } catch (error) {
     return NextResponse.json(
       { 
         success: false, 
-        error: { message: error instanceof Error ? error.message : 'Erreur serveur' }
+        error: { message: 'Erreur serveur' }
       },
       { status: 500 }
     );

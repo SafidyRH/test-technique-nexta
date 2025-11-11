@@ -1,4 +1,5 @@
 import { createServerSupabaseClient } from '@/shared/api/supabase-server';
+import { PaginatedResponse, PaginationParams } from '@/shared/types/api.types';
 import type { 
   Project, 
   ProjectWithStats, 
@@ -255,5 +256,73 @@ export class ProjectRepository {
     }
 
     return count || 0;
+  }
+
+   /**
+   * Récupère les projets avec pagination optimisée
+   */
+  static async findAllPaginated(
+    filters?: ProjectFilters,
+    sortBy: SortBy = 'date',
+    sortOrder: SortOrder = 'desc',
+    pagination: PaginationParams = { page: 1, pageSize: 12 }
+  ): Promise<PaginatedResponse<ProjectWithStats>> {
+    const supabase = await createServerSupabaseClient();
+    
+    const { page, pageSize } = pagination;
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+
+    let query = supabase
+      .from('project_stats')
+      .select('*', { count: 'exact' });
+
+    // Filtres
+    if (filters?.status) {
+      query = query.eq('status', filters.status);
+    }
+    
+    if (filters?.isFunded !== undefined) {
+      query = query.eq('is_funded', filters.isFunded);
+    }
+    
+    if (filters?.search) {
+      query = query.or(
+        `title.ilike.%${filters.search}%,description.ilike.%${filters.search}%`
+      );
+    }
+
+    // Tri
+    const sortColumn = sortBy === 'date' 
+      ? 'created_at' 
+      : sortBy === 'progress' 
+      ? 'progress_percentage' 
+      : 'total_raised';
+    
+    query = query.order(sortColumn, { ascending: sortOrder === 'asc' });
+
+    // Pagination
+    query = query.range(from, to);
+
+    const { data, error, count } = await query;
+
+    if (error) {
+      throw new Error(`Erreur pagination: ${error.message}`);
+    }
+
+    const totalCount = count || 0;
+    const totalPages = Math.ceil(totalCount / pageSize);
+
+    return {
+      data: data || [],
+      pagination: {
+        page,
+        pageSize,
+        totalCount,
+        totalPages,
+        hasNextPage: page < totalPages,
+        hasPreviousPage: page > 1,
+      },
+    };
   }
 }
